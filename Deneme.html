@@ -1,9 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>Ma Première Page HTML</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BIRAK BU ISLERI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #1a1a1a, #333, #111, #222);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 5rem;
+      text-transform: uppercase;
+      color: #ff0000;
+      text-shadow: 0 0 15px #ff0000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        text-shadow: 0 0 15px #ff0000;
+      }
+      to {
+        text-shadow: 0 0 30px #ff4444, 0 0 60px #ff0000;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Bonjour, le monde !</h1>
+
+  <h1 id="mainText">BIRAK BU ISLERI</h1>
+
+  <script>
+    const text = document.getElementById("mainText");
+    const colors = ["#ff0000", "#00ff00", "#00ffff", "#ffff00", "#ff00ff", "#ffffff"];
+    let index = 0;
+
+    text.addEventListener("click", () => {
+      index = (index + 1) % colors.length;
+      text.style.color = colors[index];
+      text.style.textShadow = `0 0 20px ${colors[index]}`;
+    });
+  </script>
+
 </body>
 </html>
